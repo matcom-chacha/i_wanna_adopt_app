@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "./fetchPet";
-
+import Carousel from "./Carousel";
 const Details = () => {
   const { id } = useParams(); // provided by the Context BrowserRouter creates
   const results = useQuery(["details", id], fetchPet); // this says, retrieve from cache named details pet with given id, if it was not found store it
@@ -18,6 +18,7 @@ const Details = () => {
 
   return (
     <div className="details">
+      <Carousel images={pet.images} />
       <div>
         <h1>{pet.name}</h1>
         <h2>

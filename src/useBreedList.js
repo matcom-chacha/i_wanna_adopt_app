@@ -7,4 +7,4 @@ export default function useBreedList(animal) {
   return [results?.data?.breeds ?? [], results.status];
 }
 
-// results?.data?.breeds?? [] --> Means, are there any results avaiable, if so get the values requires, otherwise returns an empty array
+// results?.data?.breeds?? [] --> ES21 - Means, are there any results avaiable, if so get the values requires, otherwise returns an empty array
