@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
+
 const Details = () => {
   const { id } = useParams(); // provided by the Context BrowserRouter creates
   const results = useQuery(["details", id], fetchPet); // this says, retrieve from cache named details pet with given id, if it was not found store it
@@ -31,4 +33,12 @@ const Details = () => {
   );
 };
 
-export default Details;
+function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
+
+export default DetailsErrorBoundary;
